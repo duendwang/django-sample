@@ -20,3 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path ('polls/', include('polls.urls')),
 ]
+
+admin.site.site_header = 'Django Sample Adminstration'

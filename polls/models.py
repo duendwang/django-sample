@@ -13,6 +13,12 @@ class Question(models.Model):
     def __str__(self):
         return self.question_text
     
+    @admin.display(
+        boolean = True,
+        order = 'pub_date',
+        description = 'Published recently?',
+    )
+
     def was_published_recently(self):
         now = timezone.now()
         return now >= self.pub_date >= now - datetime.timedelta(days=1)
